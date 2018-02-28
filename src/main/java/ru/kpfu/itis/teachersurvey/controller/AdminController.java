@@ -135,8 +135,10 @@ public class AdminController {
         model.addAttribute("module", "disciplines");
         model.addAttribute("disciplineForm", new DisciplineForm());
 
-        model.addAttribute("teachers", teacherService.findAll().stream().collect(Collectors
-                .toMap(x -> String.valueOf(x.getId()), Teacher::getFullName)));
+        model.addAttribute("teachers", teacherService.findAll().stream()
+                .collect(Collectors.toMap(x -> String.valueOf(x.getId()), Teacher::getFullName)).entrySet().stream()
+                .sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,
+                        Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new)));
         model.addAttribute("typeEnum", DisciplineType.values());
         model.addAttribute("courses", courseService.findAll().stream().collect(Collectors
                 .toMap(Course::getId, Course::getTitle)));

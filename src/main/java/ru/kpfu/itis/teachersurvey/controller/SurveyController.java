@@ -1,6 +1,5 @@
 package ru.kpfu.itis.teachersurvey.controller;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Slf4j
 @Controller
 @RequestMapping("/survey")
 @SessionAttributes(types = SurveyResponseForm.class)
@@ -76,6 +74,10 @@ public class SurveyController {
                            @RequestParam(value = "groupId",required = false) Long groupId,
                            @ModelAttribute("surveyPageWrapper") SurveyPageWrapper questionAnswers,
                            @ModelAttribute(binding = false) SurveyResponseForm surveyResponseForm) {
+        if (surveyResponseForm.getSurveyId() == null || !surveyId.equals(surveyResponseForm.getSurveyId())) {
+            throw new RuntimeException("Invalid survey id");
+        }
+
         if (groupId != null) {
             surveyResponseForm.setGroupId(groupId);
         }
@@ -93,7 +95,6 @@ public class SurveyController {
                 surveyResponseForm.getQuestionResponses().add(questionResponse);
             }
         }
-        log.info(String.valueOf(surveyResponseForm.getQuestionResponses().size()));
         if (survey.getSurveyPages().size() <= page) {
             questionResponseService.save(surveyResponseForm.getQuestionResponses());
             return "redirect:/survey/end";
@@ -117,6 +118,4 @@ public class SurveyController {
         status.setComplete();
         return "index";
     }
-
-
 }

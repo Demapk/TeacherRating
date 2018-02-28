@@ -1,6 +1,6 @@
 <#import "layout/baseTemplate.ftl" as base>
 <head>
-    <link rel="stylesheet" href="css/signin.css">
+    <link rel="stylesheet" href="/css/signin.css">
 </head>
 <@base.base title="Login">
     <form class="form-signin" action="/login" method="post">

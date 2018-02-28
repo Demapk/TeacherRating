@@ -6,10 +6,16 @@
             <div class="col-sm-2">Вопросы</div>
             <div class="col-sm-10">
                 <div class="form-check">
-                    <@spring.formCheckboxes "surveyForm.questions" questions '<br>'/>
+                    <input type="checkbox" class="selectall"/> Выбрать все <br>
+                    <@spring.formCheckboxes "surveyForm.questions" questions '<br>' "class='individual'"/>
                 </div>
             </div>
         </div>
         <input type="submit" id="submitForm" class="btn btn-primary">
     </form>
 </@admin.admin>
+<script>
+    $(".selectall").click(function(){
+        $(".individual").prop("checked",$(this).prop("checked"));
+    });
+</script>

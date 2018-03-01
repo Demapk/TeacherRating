@@ -67,11 +67,8 @@ INSERT INTO discipline(id, title, type, course_id) VALUES (25, 'Курс по в
 INSERT INTO discipline(id, title, type, course_id) VALUES (70, 'Курс по выбору: Разработка корпоративных приложений: Java', 'PRACTICE', 2);
 INSERT INTO discipline(id, title, type, course_id) VALUES (26, 'Курс по выбору: Цифровая живопись', 'PRACTICE', 2);
 INSERT INTO discipline(id, title, type, course_id) VALUES (27, 'Введение в робототехнику', 'PRACTICE', 2);
--- INSERT INTO discipline(id, title, type, course_id) VALUES (28, 'Введение в робототехнику', 'LECTURE', 2);
 INSERT INTO discipline(id, title, type, course_id) VALUES (29, 'Введение в искусственный интеллект', 'PRACTICE', 2);
--- INSERT INTO discipline(id, title, type, course_id) VALUES (30, 'Введение в искусственный интеллект', 'LECTURE', 2);
 INSERT INTO discipline(id, title, type, course_id) VALUES (31, 'Методы оптимизации', 'PRACTICE', 2);
--- INSERT INTO discipline(id, title, type, course_id) VALUES (32, 'Методы оптимизации', 'LECTURE', 2);
 
 INSERT INTO discipline(id, title, type, course_id) VALUES (33, 'Управление проектами', 'PRACTICE', 3);
 INSERT INTO discipline(id, title, type, course_id) VALUES (34, 'Управление проектами', 'LECTURE', 3);

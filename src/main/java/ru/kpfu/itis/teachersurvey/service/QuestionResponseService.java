@@ -15,4 +15,6 @@ public interface QuestionResponseService {
     List<QuestionResponse> findAll();
 
     void delete(Long id);
+
+    List<QuestionResponse> findByParam(Long surveyId, Long teacherId, Long disciplineId, Long groupId);
 }

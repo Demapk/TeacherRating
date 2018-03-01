@@ -234,4 +234,9 @@ public class AdminController {
         return "admin/confirm";
     }
 
+    @GetMapping("/overview")
+    public String overviewPage() {
+        return "admin/overview";
+    }
+
 }

@@ -40,4 +40,9 @@ public class QuestionResponseServiceImpl implements QuestionResponseService {
     public void delete(Long id) {
         questionResponseRepository.delete(id);
     }
+
+    @Override
+    public List<QuestionResponse> findByParam(Long surveyId, Long teacherId, Long disciplineId, Long groupId) {
+        return questionResponseRepository.findResponses(surveyId, teacherId, disciplineId, groupId);
+    }
 }

@@ -1,5 +1,6 @@
 package ru.kpfu.itis.teachersurvey.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ru.kpfu.itis.teachersurvey.model.enumeration.CourseYear;
@@ -25,11 +26,14 @@ public class Course implements Serializable {
     private CourseYear courseYear;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<Survey> surveys = new ArrayList<>();
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<Group> groups = new ArrayList<>();
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<Discipline> disciplines = new ArrayList<>();
 }

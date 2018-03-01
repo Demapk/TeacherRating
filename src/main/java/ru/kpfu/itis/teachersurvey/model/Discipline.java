@@ -1,5 +1,7 @@
 package ru.kpfu.itis.teachersurvey.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ru.kpfu.itis.teachersurvey.model.enumeration.DisciplineType;
@@ -31,9 +33,11 @@ public class Discipline implements Serializable {
     @JoinTable(name = "discipline_teacher",
             joinColumns = @JoinColumn(name = "discipline_id"),
             inverseJoinColumns = @JoinColumn(name = "teacher_id"))
+    @JsonManagedReference
     private Set<Teacher> teachers = new HashSet<>();
 
     @OneToMany(mappedBy = "discipline", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<QuestionResponse> questionResponses = new ArrayList<>();
 
 }

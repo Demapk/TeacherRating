@@ -1,5 +1,7 @@
 package ru.kpfu.itis.teachersurvey.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -26,12 +28,15 @@ public class Survey implements Serializable {
     private boolean active;
 
     @ManyToOne
+    @JsonManagedReference
     private Course course;
 
     @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<QuestionResponse> questionResponses = new ArrayList<>();
 
     @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<SurveyPage> surveyPages = new ArrayList<>();
 
 }

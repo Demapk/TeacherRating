@@ -1,5 +1,7 @@
 package ru.kpfu.itis.teachersurvey.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,8 +23,10 @@ public class Group implements Serializable {
     private String title;
 
     @ManyToOne
+    @JsonManagedReference
     private Course course;
 
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<QuestionResponse> questionResponses = new ArrayList<>();
 }

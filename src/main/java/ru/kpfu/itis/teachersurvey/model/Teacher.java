@@ -1,5 +1,6 @@
 package ru.kpfu.itis.teachersurvey.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -32,9 +33,11 @@ public class Teacher implements Serializable {
     private String middleName;
 
     @ManyToMany(mappedBy = "teachers")
+    @JsonBackReference
     private Set<Discipline> courses = new HashSet<>();
 
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<QuestionResponse> questionResponses = new ArrayList<>();
 
     public String getFullName() {
@@ -42,7 +45,14 @@ public class Teacher implements Serializable {
     }
 
     public String getInitials() {
-        return lastName + " " + firstName.charAt(0) + " " + middleName.charAt(0);
+        StringBuilder stringBuilder = new StringBuilder(lastName);
+        if (firstName != null && firstName.length() > 0) {
+            stringBuilder.append(" ").append(firstName.charAt(0)).append(".");
+        }
+        if (middleName != null && middleName.length() > 0) {
+            stringBuilder.append(" ").append(middleName.charAt(0)).append(".");
+        }
+        return stringBuilder.toString();
     }
 
 }

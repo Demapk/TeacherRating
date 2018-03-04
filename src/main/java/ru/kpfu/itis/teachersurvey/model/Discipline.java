@@ -19,7 +19,8 @@ import java.util.Set;
 public class Discipline implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "discipline_id_seq")
+    @SequenceGenerator(name = "discipline_id_seq", sequenceName = "discipline_id_seq", allocationSize = 1)
     private Long id;
     private String title;
 

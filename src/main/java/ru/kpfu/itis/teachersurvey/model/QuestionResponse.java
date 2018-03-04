@@ -11,7 +11,8 @@ import java.io.Serializable;
 public class QuestionResponse implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "question_response_id_seq")
+    @SequenceGenerator(name = "question_response_id_seq", sequenceName = "question_response_id_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne

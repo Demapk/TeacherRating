@@ -18,7 +18,8 @@ import java.util.List;
 public class Question implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "question_id_seq")
+    @SequenceGenerator(name = "question_id_seq", sequenceName = "question_id_seq", allocationSize = 1)
     private Long id;
 
     @NotEmpty

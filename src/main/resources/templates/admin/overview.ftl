@@ -5,11 +5,11 @@
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 </head>
 <@admin.admin>
-        <h1 class="font-weight-normal">Реузльтаты опроса</h1>
+        <h1 class="font-weight-normal">Результаты опроса</h1>
         <div class="input-group mb-3">
 
             <select id="sel_survey" class="custom-select">
-                <option selected>Выберите курс</option>
+                <option selected>Выберите опрос</option>
             </select>
 
         </div>

@@ -375,7 +375,7 @@ INSERT INTO question_question_option (question_id, question_option) VALUES (4, '
 INSERT INTO question_question_option (question_id, question_option) VALUES (5, '1');
 INSERT INTO question_question_option (question_id, question_option) VALUES (5, '2');
 INSERT INTO question_question_option (question_id, question_option) VALUES (5, '3');
-INSERT INTO question_question_option (question_id, question_option) VALUES (5, '5');
+INSERT INTO question_question_option (question_id, question_option) VALUES (5, '4');
 INSERT INTO question_question_option (question_id, question_option) VALUES (5, '5');
 INSERT INTO question_question_option (question_id, question_option) VALUES (5, 'Не могу оценить');
 INSERT INTO question_question_option (question_id, question_option) VALUES (6, 'Да');

@@ -1,6 +1,6 @@
 <#import "/spring.ftl" as spring>
 <#import "../layout/baseTemplate.ftl" as base>
-<@base.base "Опрос">
+<@base.base "Опросы">
     <div class="container">
         <#list surveys>
             <ul>

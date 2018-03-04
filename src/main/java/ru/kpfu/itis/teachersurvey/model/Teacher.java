@@ -55,4 +55,51 @@ public class Teacher implements Serializable {
         return stringBuilder.toString();
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public Set<Discipline> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<Discipline> courses) {
+        this.courses = courses;
+    }
+
+    public List<QuestionResponse> getQuestionResponses() {
+        return questionResponses;
+    }
+
+    public void setQuestionResponses(List<QuestionResponse> questionResponses) {
+        this.questionResponses = questionResponses;
+    }
 }

@@ -81,7 +81,6 @@
                     labels: Object.keys(teachers[value]),
                     series: [avg]
                 }, {
-                    width: 600,
                     height: 400,
                     low: 0,
                     high: 5

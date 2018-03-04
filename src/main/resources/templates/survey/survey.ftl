@@ -5,6 +5,7 @@
         <h1 class="font-weight-normal">${title}</h1>
         <p class="lead">${description}</p>
         <h4>Выберите группу</h4>
+        <br>
         <form method="post">
             <div class="form-group row">
                 <div class="col-sm-2">Группа</div>

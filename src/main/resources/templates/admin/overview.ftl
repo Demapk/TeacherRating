@@ -38,7 +38,8 @@
         var surveyId = surveyDropDown.val();
         $.get("/api/v1/surveys/" + surveyId + "/disciplines", function (response) {
             $.each(response, function (key, value) {
-                disciplineDropDown.append($("<option />").val(value.id).text(value.title));
+                console.log(value);
+                disciplineDropDown.append($("<option />").val(value.id).text(value.title + '(' + value.type + ')'));
             });
         });
     });
@@ -52,7 +53,8 @@
             $.each(response, function (key, value) {
                 if (value.question.questionType === "RADIO") {
                     teachers[JSON.stringify(value.teacher)] = teachers[JSON.stringify(value.teacher)] || {};
-                    teachers[JSON.stringify(value.teacher)][value.question.title] = teachers[JSON.stringify(value.teacher)][value.question.title] || [];
+                    teachers[JSON.stringify(value.teacher)][value.question.title] =
+                            teachers[JSON.stringify(value.teacher)][value.question.title] || [];
                     teachers[JSON.stringify(value.teacher)][value.question.title].push(value.answer);
                 }
             });
@@ -83,7 +85,10 @@
                 }, {
                     height: 400,
                     low: 0,
-                    high: 5
+                    high: 5,
+                    axisX: {
+                        offset: 80
+                    }
                 }).on('draw', function(data) {
                     if(data.type === 'bar') {
                         data.element.attr({

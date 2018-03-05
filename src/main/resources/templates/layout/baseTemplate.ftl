@@ -26,7 +26,7 @@
             <ul class="navbar-nav mr-auto">
 
                             <li class="nav-item active">
-                                <a class="nav-link" href="/admin">Админка<span class="sr-only">(current)</span></a>
+                                <a class="navbar-brand" href="/admin">Админка<span class="sr-only">(current)</span></a>
                             </li>
                 <#--<@security.authorize access="hasRole('ADMIN')">
                 <li class="nav-item dropdown">

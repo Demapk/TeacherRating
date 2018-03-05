@@ -119,6 +119,12 @@ public class AdminController {
 
     //Discipline
 
+    @PostMapping("/disciplines/{id}/delete")
+    public String deleteDiscipline(@PathVariable Long id) {
+        disciplineService.delete(id);
+        return "redirect:/admin/disciplines";
+    }
+
     @GetMapping("/disciplines")
     public String disciplinesPage(Model model) {
         model.addAttribute("module", "disciplines");
@@ -186,6 +192,12 @@ public class AdminController {
     }
 
     //Survey
+
+    @PostMapping("/survey/{id}/delete")
+    public String deleteSurvey(@PathVariable Long id) {
+        surveyService.delete(id);
+        return "redirect:/admin/survey";
+    }
 
     @GetMapping("/survey")
     public String surveyPage(Model model) {

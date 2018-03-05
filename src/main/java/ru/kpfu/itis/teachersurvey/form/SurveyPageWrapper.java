@@ -11,4 +11,12 @@ import java.util.List;
 public class SurveyPageWrapper {
 
     private List<QuestionResponseForm> questionResponses = new ArrayList<>();
+
+    public List<QuestionResponseForm> getQuestionResponses() {
+        return questionResponses;
+    }
+
+    public void setQuestionResponses(List<QuestionResponseForm> questionResponses) {
+        this.questionResponses = questionResponses;
+    }
 }

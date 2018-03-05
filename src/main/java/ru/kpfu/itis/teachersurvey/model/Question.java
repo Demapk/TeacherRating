@@ -44,4 +44,60 @@ public class Question implements Serializable {
     @ManyToMany(mappedBy = "questions")
     @JsonBackReference
     private List<SurveyPage> surveyPages = new ArrayList<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public QuestionType getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(QuestionType questionType) {
+        this.questionType = questionType;
+    }
+
+    public boolean isRequired() {
+        return required;
+    }
+
+    public void setRequired(boolean required) {
+        this.required = required;
+    }
+
+    public List<String> getQuestionOptions() {
+        return questionOptions;
+    }
+
+    public void setQuestionOptions(List<String> questionOptions) {
+        this.questionOptions = questionOptions;
+    }
+
+    public List<QuestionResponse> getQuestionResponses() {
+        return questionResponses;
+    }
+
+    public void setQuestionResponses(List<QuestionResponse> questionResponses) {
+        this.questionResponses = questionResponses;
+    }
+
+    public List<SurveyPage> getSurveyPages() {
+        return surveyPages;
+    }
+
+    public void setSurveyPages(List<SurveyPage> surveyPages) {
+        this.surveyPages = surveyPages;
+    }
 }

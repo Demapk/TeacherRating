@@ -41,4 +41,51 @@ public class Discipline implements Serializable {
     @JsonBackReference
     private List<QuestionResponse> questionResponses = new ArrayList<>();
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public DisciplineType getType() {
+        return type;
+    }
+
+    public void setType(DisciplineType type) {
+        this.type = type;
+    }
+
+    public Set<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(Set<Teacher> teachers) {
+        this.teachers = teachers;
+    }
+
+    public List<QuestionResponse> getQuestionResponses() {
+        return questionResponses;
+    }
+
+    public void setQuestionResponses(List<QuestionResponse> questionResponses) {
+        this.questionResponses = questionResponses;
+    }
 }

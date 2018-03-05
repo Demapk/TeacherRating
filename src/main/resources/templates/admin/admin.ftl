@@ -53,7 +53,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="/admin/survey" class="nav-link <#if module?? && module == "survey">active</#if>">
-                            Опрос
+                            Опросы
                         </a>
                     </li>
                     <li class="nav-item">

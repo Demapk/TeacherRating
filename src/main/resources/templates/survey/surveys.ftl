@@ -1,11 +1,12 @@
 <#import "/spring.ftl" as spring>
 <#import "../layout/baseTemplate.ftl" as base>
-<@base.base "Опрос">
+<@base.base "Опросы">
     <div class="container">
         <#list surveys>
             <ul>
+                <br>
             <#items as survey>
-                <li><a href="/survey/${survey.id}">${survey.title}</a></li>
+                <a class="btn btn-outline-primary" href="/survey/${survey.id}" role="button">${survey.title}</a>
             </#items>
             </ul>
         </#list>

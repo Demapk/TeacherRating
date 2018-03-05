@@ -19,4 +19,36 @@ public class DisciplineForm implements Serializable {
     private String title;
     private Long courseId;
     private Map<DisciplineType, Set<Long>> teachers = new HashMap<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Long getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
+
+    public Map<DisciplineType, Set<Long>> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(Map<DisciplineType, Set<Long>> teachers) {
+        this.teachers = teachers;
+    }
 }

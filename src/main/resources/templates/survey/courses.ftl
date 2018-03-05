@@ -4,7 +4,9 @@
     <div class="container">
         <div class="col-md-8">
             <#list courses as course>
-                <a href="/survey/course/${course.id}">${course.title}</a> <br>
+                <br>
+                <a class="btn btn-outline-primary" href="/survey/course/${course.id}" role="button">${course.title}</a>
+                <br>
             </#list>
         </div>
     </div>

@@ -18,7 +18,8 @@ import java.util.List;
 public class Survey implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "survey_id_seq")
+    @SequenceGenerator(name = "survey_id_seq", sequenceName = "survey_id_seq", allocationSize = 1)
     private Long id;
 
     private String title;

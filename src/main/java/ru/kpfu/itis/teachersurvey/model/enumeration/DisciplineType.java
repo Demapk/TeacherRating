@@ -1,5 +1,8 @@
 package ru.kpfu.itis.teachersurvey.model.enumeration;
 
+
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum DisciplineType {
     PRACTICE("Практика"), LECTURE("Лекция");
 
@@ -9,6 +12,7 @@ public enum DisciplineType {
         this.title = title;
     }
 
+    @JsonValue
     public String getTitle() {
         return title;
     }

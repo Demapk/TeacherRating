@@ -18,7 +18,8 @@ import java.util.Set;
 public class Teacher implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "teacher_id_seq")
+    @SequenceGenerator(name = "teacher_id_seq", sequenceName = "teacher_id_seq", allocationSize = 1)
     private Long id;
 
     @NotEmpty

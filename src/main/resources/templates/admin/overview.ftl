@@ -5,11 +5,11 @@
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 </head>
 <@admin.admin>
-        <h1 class="font-weight-normal">Реузльтаты опроса</h1>
+        <h1 class="font-weight-normal">Результаты опроса</h1>
         <div class="input-group mb-3">
 
             <select id="sel_survey" class="custom-select">
-                <option selected>Выберите курс</option>
+                <option selected>Выберите опрос</option>
             </select>
 
         </div>
@@ -38,7 +38,8 @@
         var surveyId = surveyDropDown.val();
         $.get("/api/v1/surveys/" + surveyId + "/disciplines", function (response) {
             $.each(response, function (key, value) {
-                disciplineDropDown.append($("<option />").val(value.id).text(value.title));
+                console.log(value);
+                disciplineDropDown.append($("<option />").val(value.id).text(value.title + '(' + value.type + ')'));
             });
         });
     });
@@ -52,7 +53,8 @@
             $.each(response, function (key, value) {
                 if (value.question.questionType === "RADIO") {
                     teachers[JSON.stringify(value.teacher)] = teachers[JSON.stringify(value.teacher)] || {};
-                    teachers[JSON.stringify(value.teacher)][value.question.title] = teachers[JSON.stringify(value.teacher)][value.question.title] || [];
+                    teachers[JSON.stringify(value.teacher)][value.question.title] =
+                            teachers[JSON.stringify(value.teacher)][value.question.title] || [];
                     teachers[JSON.stringify(value.teacher)][value.question.title].push(value.answer);
                 }
             });
@@ -81,10 +83,12 @@
                     labels: Object.keys(teachers[value]),
                     series: [avg]
                 }, {
-                    width: 600,
                     height: 400,
                     low: 0,
-                    high: 5
+                    high: 5,
+                    axisX: {
+                        offset: 80
+                    }
                 }).on('draw', function(data) {
                     if(data.type === 'bar') {
                         data.element.attr({

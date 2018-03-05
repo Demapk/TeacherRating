@@ -2,6 +2,7 @@ INSERT INTO course(id, course_year, title) VALUES (1, 'BACHELOR_FIRST', '1 ку�
 INSERT INTO course(id, course_year, title) VALUES (2, 'BACHELOR_SECOND', '2 курс');
 INSERT INTO course(id, course_year, title) VALUES (3, 'BACHELOR_THIRD', '3 курс');
 INSERT INTO course(id, course_year, title) VALUES (4, 'BACHELOR_FOURTH', '4 курс');
+SELECT setval('course_id_seq', (SELECT max(id) FROM course));
 
 INSERT INTO student_group VALUES (1, '11-701', 1);
 INSERT INTO student_group VALUES (2, '11-702', 1);
@@ -35,6 +36,8 @@ INSERT INTO student_group VALUES (29, '11-405', 4);
 INSERT INTO student_group VALUES (30, '11-406', 4);
 INSERT INTO student_group VALUES (31, '11-407', 4);
 INSERT INTO student_group VALUES (32, '11-408', 4);
+SELECT setval('student_group_id_seq', (SELECT max(id) FROM student_group));
+
 
 INSERT INTO discipline(id, title, type, course_id) VALUES (1, 'Иностранный язык', 'PRACTICE', 1);
 INSERT INTO discipline(id, title, type, course_id) VALUES (2, 'Информатика', 'PRACTICE', 1);
@@ -106,6 +109,7 @@ INSERT INTO discipline(id, title, type, course_id) VALUES (64, 'Интернет
 INSERT INTO discipline(id, title, type, course_id) VALUES (65, 'Механизмы защиты удаленного доступа', 'PRACTICE', 4);
 INSERT INTO discipline(id, title, type, course_id) VALUES (66, 'Проектирование человеко-машинных интерфейсов', 'PRACTICE', 4);
 INSERT INTO discipline(id, title, type, course_id) VALUES (67, 'Аспектно-ориентированное проектирование и разработка', 'PRACTICE', 4);
+SELECT setval('discipline_id_seq', (SELECT max(id) FROM discipline));
 
 INSERT INTO teacher(id, last_name, first_name, middle_name) VALUES (1, 'Макаев', 'Х', 'Ф');
 INSERT INTO teacher(id, last_name, first_name, middle_name) VALUES (2, 'Баранова', 'А', 'Р');
@@ -193,6 +197,7 @@ INSERT INTO teacher(id, last_name, first_name, middle_name) VALUES (83, 'Дау�
 INSERT INTO teacher(id, last_name, first_name, middle_name) VALUES (84, 'Зайдуллин', 'С', 'С');
 INSERT INTO teacher(id, last_name, first_name, middle_name) VALUES (85, 'Хайдаров', 'Ш', 'М');
 INSERT INTO teacher(id, last_name, first_name, middle_name) VALUES (86, 'Новиков', 'П', 'А');
+SELECT setval('teacher_id_seq', (SELECT max(id) FROM teacher));
 
 INSERT INTO discipline_teacher (discipline_id, teacher_id) VALUES (1, 1);
 INSERT INTO discipline_teacher (discipline_id, teacher_id) VALUES (1, 2);
@@ -341,6 +346,7 @@ INSERT INTO question(id, question_type, required, title) VALUES (4, 'RADIO', tru
 INSERT INTO question(id, question_type, required, title) VALUES (5, 'RADIO', true, 'Ответы на вопросы студентов');
 INSERT INTO question(id, question_type, required, title) VALUES (6, 'RADIO', true, 'Прослушали ли бы вы следующий курс у данного преподавателя?');
 INSERT INTO question(id, question_type, required, title) VALUES (7, 'TEXT', false, 'Дополнительные комментарии по данному преподавателю');
+SELECT setval('question_id_seq', (SELECT max(id) FROM question));
 
 INSERT INTO question_question_option (question_id, question_option) VALUES (1, '1');
 INSERT INTO question_question_option (question_id, question_option) VALUES (1, '2');
@@ -369,7 +375,7 @@ INSERT INTO question_question_option (question_id, question_option) VALUES (4, '
 INSERT INTO question_question_option (question_id, question_option) VALUES (5, '1');
 INSERT INTO question_question_option (question_id, question_option) VALUES (5, '2');
 INSERT INTO question_question_option (question_id, question_option) VALUES (5, '3');
-INSERT INTO question_question_option (question_id, question_option) VALUES (5, '5');
+INSERT INTO question_question_option (question_id, question_option) VALUES (5, '4');
 INSERT INTO question_question_option (question_id, question_option) VALUES (5, '5');
 INSERT INTO question_question_option (question_id, question_option) VALUES (5, 'Не могу оценить');
 INSERT INTO question_question_option (question_id, question_option) VALUES (6, 'Да');
